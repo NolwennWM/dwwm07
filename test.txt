@@ -1,2 +1,6 @@
 il n'y a rien ici.
+<<<<<<< HEAD
 lorem ipsum
+=======
+Chaussette
+>>>>>>> master
