@@ -1,0 +1,76 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 400vh;
+}
+header{
+    padding: 1rem;
+    background-color: slategray;
+    color: antiquewhite;
+    text-align: center;
+    /* La position fixed sort l'élément du flux de la page et le garde toujours fixé au viewport */
+    position: fixed;
+    width: 100%;
+    /* Indique la position sur la profondeur de l'élément, par défaut tout élément est à 0.
+    Un nombre positif est au dessus (plus proche de l'écran) et un nombre négatif est en dessous */
+    z-index: 1;
+    background-image: url(../../ressources/images/favicon.ico), url(../../ressources/images/eau.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+h1{
+    background-color: rgba(0, 0, 0, 0.199);
+}
+nav, main{
+    margin-top: 50px;
+    display: inline-block;
+    height: 100%;
+    padding: 2rem;
+}
+nav{
+    width: 200px;
+    background-color: darkseagreen;
+    /* Linear-gradient crée une image avec un dégradé de couleur.
+    On peut optionnellement lui indiquer une direction pour le dégradé
+    On peut ajouter autant de couleur que l'on veut.
+    On peut préciser où est ce que nos couleurs s'arrête et commence. */
+    background-image: linear-gradient(90deg, blue, blue 10%, red, red 50%, yellow);
+}
+nav ul{
+    /* 
+        La position sticky garde l'élément dans le flux de la page, jusqu'à ce qu'il atteigne la position (ici top 70px) qui lui a été indiqué,
+        à ce moment il suivra le scrolling tant qu'il ne sort pas de son parent.
+    */
+    position: sticky;
+    top: 70px;
+}
+main{
+    /* calc() permet de calculer une taille selon différents types de valeur.
+    ! Attention à ne pas oublier les espaces */
+    width: calc(100% - 205px);
+    background-color: mediumseagreen;
+    /* Créer un dégradé en cercle */
+    background-image: radial-gradient(circle at 100%,yellow, green, pink);
+    /* Garde l'élément dans le flux de la page, mais l'ajout des propriétés :
+    right, left, top, bottom permet de le déplacer par rapport à sa position d'origine */
+    position: relative;
+    top: 100px;
+    right: 20px;
+}
+main p:last-child{
+    height: 300px;
+    background-image: conic-gradient(grey 30%, red 60%, pink);
+}
+button{
+    /* Sort l'élément du flux de la page */
+    position: absolute;
+    left: -50px;
+    top:0;
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+}

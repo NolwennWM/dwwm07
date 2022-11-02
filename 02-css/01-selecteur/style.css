@@ -1,0 +1,118 @@
+/*
+    Pour selectionner un élément et le modifier, on utilise la syntaxe qui suit : 
+    selecteur { propriété:valeur;}
+*/
+main, header{
+    background-color: aquamarine;
+}
+footer{
+    /* !important rend la propriété prioritaire sur toute autre */
+    background-color: cadetblue !important;
+}
+/* ---------- Enfant direct ou indirect ----------- */
+main p{
+    /* selectionne tout p dans un main. (indirect)*/
+    background-color: brown;
+}
+main > p{
+    /* selectionne tout p dans un main qui ne sont pas dans une autre balise. (direct)*/
+    background-color: olive;
+}
+/* ---------- Frère direct ou indirect ----------- */
+h3 ~ li{
+    /* Tous li qui suivent un h3 */
+    background-color: salmon;
+}
+h3 + li{
+    /* Le premier li suivant un h3 */
+    background-color: peachpuff;
+}
+/* -------------- Pseudo-classes ---------------- */
+/* Les pseudos classes sont écrite de la façon suivante ":pseudo-classe" */
+li:hover{
+    /* Selectionne l'élément au survol de la souris.
+        Ne fonctionne pas sur téléphone */
+    background-color: deeppink;
+}
+li:nth-of-type(3){
+    /* Selectionne le 3ème li qu'il a trouvé.
+    Existe aussi en partant de la fin :nth-last-of-type() */
+    background-color: tomato;
+}
+li:nth-child(2){
+    /* Selectionne le second enfant, si c'est un li.
+    Existe aussi en partant de la fin :nth-last-child() */
+    background-color: blueviolet;
+}
+h1 a{
+    /* Pour modifier un lien, il faut le selectionner directement et non pas son parent */
+    color: darkorange;
+}
+h1 a:active{
+    /* selectionne le lien au moment du clique */
+    color: cyan;
+}
+h1 a:focus{
+    /* Selectionne le lien quand le focus est dessus */
+    color: darkred;
+}
+h1 a:visited{
+    /* Selectionne le lien quand il est visité */
+    color: lightgoldenrodyellow;
+}
+p span:not(:nth-of-type(2)){
+    /* Selectionne tous les span dans un p excepté le second */
+    color: magenta;
+}
+*:not(h1, a){
+    /* Selectionne tous ce qui n'est pas un h1 ou un a */
+    font-size: 20px;
+}
+/* ------------------- Pseudo Element --------------- */
+/* Les pseudos élément s'écrivent telle que ::pseudo-element */
+article p::first-letter{
+    /* selectionne la première lettre de l'élément */
+    font-size: 50px;
+}
+main > p::first-line{
+    /* selectionne la première ligne de l'élément */
+    font-weight: 900;
+}
+h1::before{
+    /* Place un élément avant la selection */
+    content: "C'est faux ->";
+}
+h1::after{
+    /* Place un élément après la selection */
+    content: "<- Il ment !";
+}
+/* Before et After doivent contenir la propriété "content" */
+/* --------------- Classes, ID, et Attributs ------------ */
+#MenuImportant{
+    /* Selectionne un élément par rapport à son ID */
+    font-size: 42px;
+    font-weight: 900;
+    color: red;
+}
+.peuImportant{
+    /* Selectionne les éléments portant cette classe */
+    font-size: 8px;
+    font-weight: 100;
+    color: gainsboro;
+}
+a[target]{
+    /* Tous a qui a l'attribut target. */
+    font-style: italic;
+}
+a[href*="amazon"]{
+    /* Tous a dont l'attribut href contient "amazon" */
+    font-family: monospace;
+}
+a[href$=".fr"]{
+    /* tous a dont l'attribut href termine par ".fr" */
+    background-color: gold;
+}
+a[href^="https"]::before{
+    /* tous a dont l'attribut href commence par "https" */
+    content: "\2713";
+}

@@ -1,0 +1,99 @@
+@use "liste";
+/* @use doit être écrit avant toute autre règles
+Il permet d'importer un fichier "partial" (qui commence avec "_"
+Les fichiers partials ne sont pas compilé sauf si importé */
+h1{
+    color: red;
+}
+h2{
+    color: grey;
+}
+// -------------- NESTING / Nidification ------------
+/* Le nesting permet d'inclure des selecteurs dans un autre selecteur, permettant ainsi de ranger les enfants dans leurs parents sans avoir à répéter leurs noms. */
+footer{
+    background-color: aquamarine;
+    .copy{
+        background-color: blueviolet;
+    }
+    .menu{
+        background-color: greenyellow;
+        li{
+            background-color: darkcyan;
+            &:hover{
+                background-color: darkorange;
+            }
+        }
+    }
+}
+// --------------- Les variables ---------------
+/* les variables scss ont une syntaxe un peu plus simple et n'apparaîssent pas dans la compilation. */
+$colorMain : violet;
+.truc5{
+    background-color: $colorMain;
+}
+// --------------- Extends -------------------
+/* extends permet de reprendre un morceau de css et de le réutiliser à plusieurs endroits*/
+%flexCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header{
+    @extend %flexCenter;
+    // Je peux aussi l'utiliser avec le nom d'une classe afin de copier le code que j'ai appliqué à cette classe.
+    @extend .truc5;
+}
+main ul{
+    @extend %flexCenter;
+    flex-direction: column;
+}
+// ------------------- mixin ---------------------------
+@mixin absol($top:50%, $l:50%, $tr1:-50%, $tr2:-50%){
+    position: absolute;
+    top: $top;
+    left: $l;
+    transform: translate($tr1, $tr2);
+}
+.copy{
+    font-size: 4rem;
+    background-color: mediumorchid;
+    @include absol(90%, 90%);
+}
+.menu{
+    @include absol();
+}
+// ----------------- FONCTIONS ------------------
+/* Une fonction scss permet de donner une valeur en entrée pour 
+en récupérer une différente en sortie 
+Par exemple ici on a une fonction qui retourne une couleur complémentaire et éclairci de la couleur donnée en argument */
+@function compLight($color){
+    // complement est une fonction scss qui retourne une couleur complémentaire
+    $comp: complement($color);
+    // lighten est une fonction scss qui retourne une couleur éclairci.
+    $light: lighten($comp, 5%);
+    // @return permet d'indiquer ce que l'on va retourner.
+    @return $light;
+}
+.copy{
+    color: mediumpurple;
+    background-color: compLight(mediumpurple);
+}
+// ------------- conditions -----------------------
+@mixin radius($w, $h){
+    width: $w;
+    height: $h;
+    /* @if permet d'indiquer des propriétés qui ne seront activé qu'à certaines conditions. ici seulement si $w et $h sont égaux. */
+    @if $w == $h{
+        border-radius: 50%;
+    }
+    /* @else permet d'ajouter des propriétés qui seront activé seulement si la condition précédente est fausse.*/
+    @else{
+        border-radius: 5px;
+    }
+}
+.copy{
+    @include radius(8rem, 8rem);
+}
+.menu{
+    @include radius(300px, 200px)
+}

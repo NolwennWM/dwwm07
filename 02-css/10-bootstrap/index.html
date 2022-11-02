@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+</head>
+<body class="bg-secondary">
+    <!-- Bootstrap permet de créer la structure de base d'un site de façon responsive. Il "amorce" la construction du site.
+    Son principe est d'utiliser les classes fournis pour appliquer le css sans toucher aux fichiers css.
+    
+    Par exemple on peut changer la couleur du "text" ou du "background" avec les classes "bg-primary" et "text-primary" 
+    Mais primary peut être changé par un des mots clefs suivants: 
+    secondary, info, success, light, dark, warning, danger...-->
+    <header class="container-fluid bg-primary">
+        <!-- La classe container permet d'avoir une div responsive laissant un espace sur ces côtés tant que l'écran n'est pas trop petit.
+        
+        On peut modifier le padding et le margin avec les classes "p-1" à "p-5" (ou "m" pour le margin) auquel on peut ajouter des précisions comme "pb" pour padding-bottom
+        ou "my" pour margin-top et margin-bottom -->
+        <div class="container p-2">
+            <!-- Certaines classes de bootstrap peuvent se voir attribuer un breakpoint "-sm-". ces breakpoints indique à partir de quelle largeur d'écran l'effet doit être appliqué.
+            Celles ci sont en mobile first, aucun breakpoint rend la propriété accessible sur n'importe quelle taille, les breakpoints se déclenchent eux à partir d'une certaine largeur. 
+            sm, md, lg, xl, xxl. -->
+            <h1 class="text-md-center text-warning">Apprenons à utiliser bootstrap</h1>
+        </div>
+    </header>
+    <div class="container bg-dark">
+        <!-- Pour rendre les sites responsive, bootstrap utilise un système de grille, celle ci est souvent contenu dans un "container" puis chaque ligne de notre grille se trouve dans une "row".
+        La grille bootstrap est divisé en 12, on va donc utiliser ces valeurs pour indiquer la taille de nos éléments.
+        12 étant toute la largeur, 6 la moitié et ainsi de suite. -->
+        <div class="row">
+            <!-- Ici j'indique que mon élément prend toute la largeur de la grille par défaut, puis si la taille dépasse un certain point, ne prend plus que la moitié et enfin si c'est assez largeur, plus qu'un tier -->
+            <div class="col-12 col-md-6 col-lg-4 p-3">
+                <article class="bg-light text-dark p-1">
+                    <h2 class="text-center">Un titre très important</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis eius non dignissimos laborum iure sapiente eos dolores repellendus culpa quod veritatis, repellat velit recusandae a vel dicta dolorum aut nisi.
+                        <br>
+                        <!-- fst indique le font-style
+                        fw le font-weight
+                        fs la font-size
+                        d permet de modifier le display -->
+                        <span class="text-danger fst-italic fw-bold fs-4 d-sm-none">Message secret</span>
+                    </p>
+                    <!-- ici on place notre élément en display flex et on applique le justify-content:center; -->
+                    <div class="d-flex justify-content-center">
+                        <!-- On transforme notre lien en bouton de couleur verte avec une largeur de 75% -->
+                        <a href="#" class="btn btn-success w-75">Super Bouton</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 p-3">
+                <article class="bg-light text-dark p-1">
+                    <h2 class="text-center">Un titre très important</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis eius non dignissimos laborum iure sapiente eos dolores repellendus culpa quod veritatis, repellat velit recusandae a vel dicta dolorum aut nisi.
+                        <br>
+                        <span class="text-danger fst-italic fw-bold fs-4 d-sm-none">Message secret</span>
+                    </p>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="btn btn-success w-75">Super Bouton</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 p-3">
+                <article class="bg-light text-dark p-1">
+                    <h2 class="text-center">Un titre très important</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis eius non dignissimos laborum iure sapiente eos dolores repellendus culpa quod veritatis, repellat velit recusandae a vel dicta dolorum aut nisi.
+                        <br>
+                        <span class="text-danger fst-italic fw-bold fs-4 d-sm-none">Message secret</span>
+                    </p>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="btn btn-success w-75">Super Bouton</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 p-3">
+                <article class="bg-light text-dark p-1">
+                    <h2 class="text-center">Un titre très important</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis eius non dignissimos laborum iure sapiente eos dolores repellendus culpa quod veritatis, repellat velit recusandae a vel dicta dolorum aut nisi.
+                        <br>
+                        <span class="text-danger fst-italic fw-bold fs-4 d-sm-none">Message secret</span>
+                    </p>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="btn btn-success w-75">Super Bouton</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 p-3">
+                <article class="bg-light text-dark p-1">
+                    <h2 class="text-center">Un titre très important</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis eius non dignissimos laborum iure sapiente eos dolores repellendus culpa quod veritatis, repellat velit recusandae a vel dicta dolorum aut nisi.
+                        <br>
+                        <span class="text-danger fst-italic fw-bold fs-4 d-sm-none">Message secret</span>
+                    </p>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="btn btn-success w-75">Super Bouton</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 p-3">
+                <article class="bg-light text-dark p-1">
+                    <h2 class="text-center">Un titre très important</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis eius non dignissimos laborum iure sapiente eos dolores repellendus culpa quod veritatis, repellat velit recusandae a vel dicta dolorum aut nisi.
+                        <br>
+                        <span class="text-danger fst-italic fw-bold fs-4 d-sm-none">Message secret</span>
+                    </p>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="btn btn-success w-75">Super Bouton</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <!-- La documentation de bootstrap contient aussi plusieurs éléments préconstruit que l'on peut intégrer à notre site d'un copié collé:
+        carousel, modal, accordeon... -->
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="../../ressources/images/eau.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="../../ressources/images/eau.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="../../ressources/images/eau.jpg" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice Bootstrap</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+</head>
+
+<body>
+    <!-- Navbar dark fixed -->
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Super Site</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Haut de page</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#footer">Bas de page</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Détail de la page
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#carouselMain">Carousel</a></li>
+                            <li><a class="dropdown-item" href="#accordeon">Accordeon</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#cards">cards</a></li>
+                            <li><a class="dropdown-item" href="#contact">contact</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search" action="https://www.google.fr/search" method="GET">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
+                    <button class="btn btn-outline-success" type="submit" formtarget="_blank">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar fin -->
+    <main class="container bg-secondary mt-5 pt-2">
+        <!-- Carousel début -->
+        <div id="carouselMain" class="carousel slide w-75 m-auto" data-bs-ride="true">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselMain" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselMain" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselMain" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselMain" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../../../ressources/images/montagne.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="../../../ressources/images/sea.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="../../../ressources/images/space.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="../../../ressources/images/ville.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselMain"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselMain"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <!-- Fin carousel -->
+        <!-- Debut Accordeon -->
+        <section id="accordeon" class="my-5">
+            <h2 class="text-center">Lorem Accordéon</h2>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                      Clique ici pour voir le texte
+                    </button>
+                  </h2>
+                  <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita porro, velit, dicta, molestiae vitae in tempore atque accusantium labore deserunt sequi excepturi nesciunt illum at animi libero odit alias culpa.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                      Ne clique surtout pas !
+                    </button>
+                  </h2>
+                  <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#hideModal">
+                            Un secret ?
+                          </button>
+                          
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                      Danger !
+                    </button>
+                  </h2>
+                  <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body bg-danger text-dark fw-bold">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ipsa perspiciatis aliquid, fugiat dolor sint tempore quam nemo quaerat praesentium debitis molestiae libero in cupiditate eligendi expedita saepe blanditiis facilis?                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </section>
+        <section id="cards">
+            <h2>Quelques cartes</h2>
+            <div class="d-flex flex-wrap justify-content-around">
+              <div class="card mb-5" style="width: 18rem;">
+                <img src="../../../ressources/images/carbonadeNL.jpg" class="card-img-top" alt="...">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+              <div class="card mb-5" style="width: 18rem;">
+                  <img src="../../../ressources/images/cannele.jpg" class="card-img-top" alt="...">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+                <div class="card mb-5" style="width: 18rem;">
+                    <img src="../../../ressources/images/okonomiyaki.jpg" class="card-img-top" alt="...">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div>
+                  <div class="card mb-5" style="width: 18rem;">
+                      <img src="../../../ressources/images/img1.jpg" class="card-img-top" alt="...">
+                      <div class="card-body text-center">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                    </div>
+                </div>
+        </section>
+        <section id="contact" class="pb-5">
+            <form action="" class="bg-light p-3 rounded">
+                <h2>Super Formulaire</h2>
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Adresse Email :</label>
+                            <input type="email" id="email" class="form-control">
+                            <div class="form-text">Votre Email ne sera pas partagé avec qui que ce soit.</div>
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Sujet du message</option>
+                                <option value="1">Aide</option>
+                                <option value="2">Question</option>
+                                <option value="3">Devis</option>
+                              </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message :</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                            <div class="form-text">Veuillez ne pas faire trop concis.</div>
+                        </div>
+                        <input type="submit" value="Envoyer" class="btn btn-primary">
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+    <!-- Début footer -->
+    <footer class="container-fluid py-3 bg-dark" id="footer">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Haut de page</a></li>
+            <li class="nav-item"><a href="#carouselMain" class="nav-link px-2 text-muted">Carousel</a></li>
+            <li class="nav-item"><a href="#accordeon" class="nav-link px-2 text-muted">Accordeon</a></li>
+            <li class="nav-item"><a href="#cards" class="nav-link px-2 text-muted">Cards</a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link px-2 text-muted">Contact</a></li>
+        </ul>
+        <p class="text-center text-muted">© 2021 Company, Inc</p>
+    </footer>
+    <!-- fin footer -->
+    <!-- début modal -->
+    <div class="modal fade" id="hideModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam enim eaque alias voluptas, minus esse unde delectus ipsum assumenda soluta fugit? Molestiae accusamus, sint esse quos quam fugiat sequi ab?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+</body>
+
+</html>

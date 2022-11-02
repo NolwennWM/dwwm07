@@ -1,0 +1,91 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    overflow: hidden;
+}
+.sky{
+    height: 100%;
+    background: linear-gradient(to right, #904E95, #E96443);
+}
+.cloud{
+    position: absolute;
+    top: 50%;
+    /* left: 50%; */
+    transform: translate(-50%, -50%);
+    width: 150px; 
+    height: 150px;
+    /* Indique le nom de l'animation à lancer */
+    animation-name: cloud;
+    /* Indique la durée de l'animation */
+    animation-duration: 10s;
+    /* Indique le sens dans lequel doit se jouer l'animation */
+    animation-direction: normal;
+    /* Indique le rythme auquel doit se jouer l'animation */
+    animation-timing-function: ease-in-out;
+    /* Ajoute un délai avant le lancement de l'animation */
+    animation-delay: 0.3s;
+    /* Indique le nombre de fois que se joue l'animation */
+    animation-iteration-count: infinite;
+    /* Permet de bloquer l'élément à la fin de son animation */
+    animation-fill-mode: forwards;
+}
+.cloud div{
+    position: absolute;
+    width: inherit; 
+    height: inherit;
+    border-radius: 50%;
+    background-color: whitesmoke;
+    /* animation regroupe les différentes propriétés d'animation */
+    animation: darkCloud 5s linear infinite;
+}
+.part1{
+    top: -35%;
+}
+.part2{
+    left: 35%;
+}
+.part3{
+    left: -35%;
+}
+/* On peut définir une animation via la @rule "@keyframes" auquel on donne le nom souhaité. */
+@keyframes cloud {
+    /* On indique un point de départ à notre animation avec "from" ou "0%" */
+    from{
+        right: -30vw;
+        height: 5px;
+        width: 5px;
+    }
+    /* On peut ajouter autant d'étape clef que l'on souhaite en 
+    indiquant à quel pourcentage telle effet doit avoir lieux. */
+    30%{
+        top: 100vh;
+    }
+    70%{
+        top: 100px;
+    }
+    75%{
+        width: 50px; 
+        height: 50px;
+    }
+    /* On indique un point d'arrivé à notre animation avec "to" ou "100%" */
+    to{
+        right: 100vw;
+        height: 250px;
+        width: 250px;
+    }
+}
+@keyframes darkCloud {
+    0%{
+        background-color: grey;
+    }
+    50%{
+        background-color: white;
+    }
+    100%{
+        background-color: grey;
+    }
+}

@@ -1,0 +1,57 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    /* Comme pour le flex, la grid est un display */
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+}
+main{
+    display: grid;
+    /* J'indique le nombre et la taille des colonnes.
+    Ici j'utilise la fonction repeat() qui permet de répéter 
+    plusieurs fois une même valeur.
+    Cela revient à écrire 15% 15% 15% 15% 15% */
+    grid-template-columns: repeat(5, 15%);
+    /* Je fais de même pour le nombre et la taille des lignes */
+    grid-template-rows: 20vh auto 200px 100px;
+    /* Prend l'espace restant dans le parent pour espacer les enfants */
+    justify-content: space-evenly;
+}
+main > div:nth-child(1){
+    background-color: lightgreen;
+    /* J'indique à quelle colonne et à quelle ligne ma case
+    commence et fini. Attention, les chiffres ne sont pas ceux des cases mais ceux des séparations. Pour 5 colonnes, cela va de 1 à 6 */
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+main > div:nth-child(2){
+    background-color: blueviolet;
+    /* Les propriétés suivantes peuvent être résumé ainsi :
+    grid-column: start/end;
+    grid-row: start/end; */
+    grid-column: 1/2;
+    grid-row: 1/3;
+}
+main > div:nth-child(3){
+    background-color: deeppink;
+    /* On peut encore résumé cela à :
+    grid-area: row-start/column-start/row-end/column-end; */
+    grid-area: 1/5/4/6;
+}
+main > div:nth-child(4){
+    background-color: olive;
+    /* Avec le mot clef span, on indique le nombre de case qui
+    doit être prit plutôt que la position de fin */
+    grid-row: 2/ span 3;
+    grid-column: 1/span 2;
+    /* On peut volontairement ou involontairement se faire superposer les cases */
+}
+main > div:nth-child(5){
+    background-color: violet;
+}

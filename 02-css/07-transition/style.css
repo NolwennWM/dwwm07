@@ -1,0 +1,66 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul{
+    position: absolute;
+    top: 50%;
+    left: -50%;
+    transform: translate(-50%, -50%);
+    transition: left 1s;
+}
+li{
+    margin: 1rem 0;
+    display: inline-block;
+}
+button{
+    font-size: 3rem;
+    aspect-ratio: 1/1;
+}
+input#burger{
+    display: none;
+}
+label[for="burger"]{
+    font-size: 3rem;
+}
+input#burger:checked ~ul{
+    left: 50%;
+}
+li:nth-child(1) button{
+    background-color: chartreuse;
+    /* Quel sont les propriétés que l'on souhaite faire transitionner */
+    transition-property: background-color, transform;
+    /* Indiquer la durée de la transition */
+    transition-duration: 1s, 2s;
+    /* Ajoute un délai avant le début de la transition */
+    transition-delay: 0.5s;
+    /* Gère la vitesse de déroulé de la transition */
+    transition-timing-function: cubic-bezier(.27,1.03,.89,-0.02);
+}
+li:nth-child(1) button:hover{
+    background-color: darkviolet;
+    transform: rotate(180deg);
+}
+li:nth-child(2) button{
+    transition-property: all;
+    transition-duration: 3s;
+    transition-timing-function: steps(5, jump-start);
+}
+li:nth-child(2) button:hover{
+    border-radius: 50%;
+}
+li:nth-child(3) button{
+    transition: all 1s 0.5s linear;
+}
+li:nth-child(3) button:active{
+    box-shadow: 10px 50px 10px 50px red;
+}
+li:nth-child(4):hover button{
+    /* Si la transition est placé sur la pseudo classe, elle n'aura lieu que lorsque celle ci se déclenche et non quand elle s'arrête.
+    Attention si on déplace, modifie la taille d'un élément, 
+    il peut nous arriver de quitter le hover, dans ce cas là,
+    il vaut mieux placer le hover sur l'élément parent.*/
+    transition: all 1s linear;
+    transform: scale(0.5);
+}

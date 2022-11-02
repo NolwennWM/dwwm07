@@ -1,0 +1,20 @@
+// $li... permet de récupérer un nombre infini d'argument qui seront rangé dans cette variable.
+@mixin liste($li...) {
+    // @for va permettre de répéter un certain nombre de fois une action. $i prenant la valeur 0 par défaut et augmentant à chaque boucle jusqu'à la taille de $li.
+    @for $i from 0 to length($li){
+        // @debug permet d'afficher un message dans le terminal
+        @debug nth($li, $i+1);
+        // nth() permet de selectionner un élément dans une liste.
+        // #{} permet d'utiliser le contenu d'une variable comme code css (ici on s'en sert comme selecteur css)
+        #{nth($li, $i+1)}{
+            font-size: 30px + $i*10;
+        }
+        // @warn affiche un warning dans le terminal (message en jaune)
+        // @warn "Attention !";
+        // @error provoque une erreur arrêtant la compilation du scss.
+        // @error "Ne faites pas ça !";
+    }
+}
+footer ul{
+    @include liste(".truc1", ".truc2", ".truc3", ".truc4", ".truc5");
+}

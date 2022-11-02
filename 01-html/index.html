@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!-- on indique au navigateur qu'il va lire un fichier de type HTML. -->
+<html lang="fr">
+    <!-- Tous le code HTML se trouvera entre les balises HTML. 
+    L'attribut "lang" permet d'indiquer la langue du fichier -->
+    <head>
+        <!-- La balise meta prend différent attributs lui donnant différents rôles.
+        Ici charset permet d'indiquer l'encodage utilisé pour les charactères. -->
+        <meta charset="UTF-8">
+        <!-- Gère la compatibilité entre navigateur. -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- Permet d'adapter la taille de la page à celle de l'appareil -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Au dessus, meta obligatoire
+            En dessous, meta conseillé
+            Indique l'auteur de la page. -->
+        <meta name="author" content="Nolwenn WEBER-MARQUISET">
+        <!-- Indique la description de la page, cette balise peut être lu par les robots des moteurs de recherche pour l'afficher dans les résultats. -->
+        <meta name="description" content="Une super page avec les bases du HTML">
+        <!-- Indique les mots clefs à taper pour retrouver votre page dans un moteur de recherche -->
+        <meta name="keywords" content="html, head, balises, meta tag">
+        <!-- Titre qui s'affiche sur l'onglet ou dans les favoris -->
+        <title>Ma première page</title>
+        <!-- La balise link va permettre de lier un fichier externe à notre page.
+        Ici l'attribut "rel" indique que l'on va lier une favicon à notre page. -->
+        <!-- <link rel="shortcut icon" href="/ressources/images/favicon.ico" type="image/x-icon"> -->
+        <!-- Au dessus, chemin absolu
+            En dessous, chemin relatif -->
+        <link rel="shortcut icon" href="../ressources/images/favicon.ico" type="image/x-icon">
+    </head>
+    <!-- La balise body contiendra tous le corps de notre page, ce qui sera visible par l'utilisateur dans le viewport. -->
+    <body>
+        <!-- Balise de type block sans effet particulier -->
+        <header>
+            <!-- Balise de type block sans effet particulier -->
+            <nav>
+                <!-- Balise de type block qui crée une liste non ordonnée -->
+                <ul>
+                    <!-- Balise de type block représentant un élément de la liste -->
+                    <li>
+                        <!-- Création d'un premier lien -->
+                        <a href="./tableau.html">Les tableaux en HTML</a>
+                    </li>
+                    <li>
+                        <!-- L'attribut target permet de changer la façon dont le lien s'ouvre, avec "_blank", il crée un nouvel onglet -->
+                        <a href="https://www.google.fr/search?q=pizza" target="_blank">Google!</a>
+                    </li>
+                </ul>
+                <!-- Balise de type block créant une liste ordonnée -->
+                <ol>
+                    <!-- Les liens commençant par "#" sont des ancres permettant de se déplacer dans la page. -->
+                    <li><a href="#video">Video</a></li>
+                    <li><a href="#footer">Footer</a></li>
+                </ol>
+            </nav>
+        </header>
+        <!-- Balise de type block sans effet -->
+        <main>
+            <!-- Les balises "h" sont des titres allant de "1" le plus grand et gras, à "6" le plus petit. -->
+            <h1>Super Titre !</h1>
+            <!-- Une section est un type block qui devrait contenir un titre -->
+            <section>
+                <h2>Grosse Section !</h2>
+                <article>
+                    <h3>Article Brillant !</h3>
+                    <!-- Une balise de type block ne pouvant contenir que des balises de type inline -->
+                    <p>
+                        <!-- balise inline qui met en gras -->
+                        <strong>Lorem ipsum dolor</strong>, sit amet consectetur adipisicing elit. Quisquam, et,
+                        <!-- Permet le saut à la ligne -->
+                        <br> praesentium debitis nesciunt cupiditate quibusdam 
+                        <!-- souligne le texte -->
+                        <u>amet earum dignissimos obcaecati</u> at modi quam! Nisi nostrum, impedit repellendus quos fugit enim cupiditate.
+                    </p>
+                    <!-- Crée une ligne séparatrice -->
+                    <hr>
+                    <p>
+                        <!-- Balise inline mettant en italique et indiquant que c'est un texte important. -->
+                        <em>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. A voluptas adipisci autem ullam pariatur voluptatum enim iure
+                        </em>
+                        <!-- Balise inline mettant en italique et indiquant que le texte est une citation -->
+                        <i>
+                            aut amet soluta. Consequuntur inventore nisi quibusdam est, eius beatae? Dolores, sequi inventore!
+                        </i>
+                    </p>
+                    <p>
+                        <!-- Permet la création d'une infobulle pour indiquer la signification d'une abbréviation -->
+                        Aimez vous le <abbr title="HyperText Markup Language">HTML</abbr>?
+                    </p>
+                    <p>
+                        <!-- block inline affichant une image ou si elle ne fonctionne pas, le "alt" -->
+                        <img src="../ressources/images/favicon.ico" alt="Favicon du site">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis nulla dolor, fugit odio commodi accusamus totam! Architecto quod, eius error explicabo, debitis labore vel suscipit, natus similique non ipsum autem?
+                    </p>
+                </article>
+                <article>
+                    <h4>article annecdotique</h4>
+                </article>
+                <article>
+                    <h5>article ridicule</h5>
+                </article>
+                <article>
+                    <h6>article invisible</h6>
+                </article>
+            </section>
+            <section id="video">
+                <h2>Audio et Video</h2>
+                <!-- La balise video peut prendre plusieurs attribut:
+                src pour indiquer la source de la vidéo
+                controls pour afficher les boutons
+                loop pour jouer la vidéo en boucle
+                muted pour couper le son par défaut
+                autoplay pour lancer automatiquement la video
+                poster pour mettre une image de présentation de la vidéo 
+                Elle peut aussi prendre une hauteur et ou une largeur avec height et width-->
+                <video 
+                src="../ressources/videos/video.mp4" 
+                controls 
+                loop 
+                muted 
+                poster="../ressources/images/favicon.ico"
+                height="500"
+                ></video>
+                <audio src="" controls></audio>
+            </section>
+        </main>
+        <footer id="footer" class="superDiv class2 grosseClasse">
+            <!-- La balise iframe permet d'intégrer une page dans une autre page. -->
+            <iframe src="./formulaire.html" frameborder="2"></iframe>
+            <!-- balise de type block sans effet -->
+            <div>
+                <!-- balise de type inline sans effet -->
+                <span></span>
+            </div>
+            <!-- Balise de type block sans effet -->
+            <code></code>
+            <!-- Balise de type block qui garde la mise en page. -->
+            <pre>
+                Bonjour
+                        Tous
+    le monde!
+            </pre>
+        </footer>
+    </body>
+</html>

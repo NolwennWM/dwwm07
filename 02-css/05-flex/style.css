@@ -1,0 +1,43 @@
+ul{
+    /* Place le parent en mode flex */
+    display: flex;
+    /* Aligne les enfants sur l'axe principal choisi (ligne ou colonne) */
+    flex-direction: row;
+    height: 20vh;
+    /* Place les éléments sur l'axe principal */
+    justify-content:space-evenly;
+    /* Permet de créer de nouvelles lignes quand la place vient à manquer. */
+    flex-wrap: wrap;
+    /* Place les éléments sur l'axe secondaire */
+    align-items:center;
+    border: 1px solid black;
+    padding: 0;
+}
+li{
+    width: 40vw;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    background-color: brown;
+    margin: 5px;
+    /* Gère l'aggrandissement de l'élément */
+    flex-grow: 1;
+}
+li:hover{
+    flex-grow: 2;
+}
+section{
+    display: flex;
+    height: 200px;
+    /* Version raccourci de flex-direction et flex-wrap */
+    flex-flow: column wrap;
+}
+article{
+    width: 40%;
+    background-color: aquamarine;
+}
+article:nth-of-type(3){
+    background-color: blueviolet;
+    /* Par défaut tout élément est à la position 0;
+    En indiquant une position positive, l'élément passe après, avec une négative il passe avant. */
+    order: -1;
+}

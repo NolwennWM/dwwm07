@@ -1,0 +1,41 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    display: grid;
+    /* Une autre façon de gérer les grids, est d'utiliser :
+    grid-area sur les enfants pour leur donner un nom.
+    Puis sur le parent utiliser grid-template-areas
+    pour indiquer aux enfants nommés comment se positionner
+    chaque "" représente une ligne et chaque nom dans la ligne 
+    une colonne, il doit donc avoir le même nombre de nom dans chaque
+    ligne.
+    * Pour plus de lisibilité, vous pouvez sauter une ligne entre chaque "" */
+    grid-template-areas: 
+    "header header header header header header" 
+    "menu article article article chaussette chaussette" 
+    "menu footer footer footer footer footer";
+}
+.item1{
+    background-color: blue;
+    grid-area: header;
+}
+.item2{
+    background-color: red;
+    grid-area: menu;
+}
+.item3{
+    background-color: yellow;
+    grid-area: article;
+}
+.item4{
+    background-color: green;
+    grid-area: chaussette;
+}
+.item5{
+    background-color: pink;
+    grid-area: footer;
+}

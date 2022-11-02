@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecteur CSS</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Seconde façon d'utiliser le CSS */
+        header, article, footer{
+            background-color: chartreuse;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            <a href="https://www.google.fr/search?q=okonomiyaki" target="_blank">Super recherche !</a>
+        </h1>
+        <p>Ce site est vraiment super !</p>
+    </header>
+    <main>
+        <p>
+            Lorem, <span> ipsum dolor sit</span> amet consectetur adipisicing elit. <span> Consequuntur, consectetur commodi. </span>Delectus corrupti vitae pariatur nemo obcaecati nobis quia <span> inventore corporis est quae fugiat, </span> accusamus dolore mollitia, optio, natus dignissimos!
+        </p>
+        <article>
+            <p>Gros texte très long</p>
+        </article>
+    </main>
+    <!-- Première possibilité de mettre du CSS -->
+    <footer style="background-color:blue;">
+        <ul>
+            <h3>Gros Menu</h3>
+            <li id="MenuImportant">Menu 1</li>
+            <li>
+                <a href="https://www.amazon.fr">Amazon</a>
+            </li>
+            <li class="peuImportant">Menu 3</li>
+            <li>
+                <a href="https://www.ebay.com">Ebay</a>
+            </li>
+            <li class="peuImportant">Menu 5</li>
+            <li>
+                <a href="https://fr.wikipedia.org/wiki/amazonie">Wikipedia</a>
+            </li>
+        </ul>
+    </footer>
+</body>
+</html>

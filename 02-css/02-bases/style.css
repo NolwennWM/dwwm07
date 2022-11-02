@@ -1,0 +1,73 @@
+@font-face{
+    /* 
+        @font-face permet d'importer une police d'écriture 
+        font-family permet de nommer notre nouvelle police
+        src permet d'indiquer où trouver la police d'écriture
+        url() d'aller chercher un élément via un chemin donnée.
+    */
+    font-family: "BlakaHollow";
+    src: url("./BlakaHollow-Regular.ttf");
+}
+:root{
+    /* 
+        L'élément root est la racine de notre document, il est majoritairement utilisé pour y placer les variables CSS.
+
+        Une variable CSS, c'est une propriété qui contient une valeur de notre choix, et qui pourra être réutilisé à plusieurs endroits de notre code.
+
+        Un nom de variable commence par "--"
+    */
+    --mainBgColor: #ABCDEF;
+    --mainTextColor: #b68f68;
+    --divTextSize: 0.8rem;
+    --mainFont: BlakaHollow, monospace;
+}
+body{
+    background-color: aquamarine;
+}
+.target1{
+    /* Pour utiliser une variable, on placera le nom de celle ci dans la fonction var() */
+    background-color: var(--mainBgColor);
+    color: var(--mainTextColor);
+    font-size: var(--divTextSize);
+    font-family: var(--mainFont);
+}
+.target2{
+    /* rgb prend trois valeurs allant de 0 à 255 */
+    background-color: rgb(0, 75, 180);
+    color:rgb(255, 255, 255);
+    font-size: 2em;
+}
+.target3{
+    /* rgba prend une quatrième valeur gérant la transparence entre 0 et 1 */
+    background-color: rgba(133, 212, 6, 0.562);
+    /* Les cm sont utilisable mais peu pratique pour une page web. */
+    font-size: 2cm;
+}
+.target4{
+    /* hsl correspond à une roue chromatique, 
+    dont la première valeur est le degré de la roue,
+    la seconde le taux de saturation de la couleur,
+    et la troisième la brillance de la couleur. */
+    background-color: hsl(340, 50%, 60%);
+}
+.target5{
+    background-color: hsla(340, 50%, 60%, 0.7);
+    font-size: 10vh;
+}
+.target6{
+    font-size: 5vw;
+}
+.target7{
+    font-size: 10vmin;
+}
+.target8{
+    font-size: 5vmax;
+}
+.target9{
+    /* clamp permet d'avoir une taille variable mais avec un minimum et un maximum,
+    ici le text fera 10vh avec un minimum de 20px et un maximum de 40px */
+    font-size: clamp(20px, 10vh, 40px);
+}
+.target10{
+    font-size: 200%;
+}
