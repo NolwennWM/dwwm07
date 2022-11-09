@@ -332,3 +332,30 @@ console.log("1 !== '1' : ",1 !== '1');
 console.log("b1 : ", b1, "b2 : ",b2);
 // le "!" avant un boolean inverse le résultat
 console.log("!b1 : ", !b1, "!b2 : ",!b2);
+
+// Il est aussi possible de vérifier plusieurs cas ensemble avec les opérateurs "et" et "ou" représenté respectivement par "&&" et "||" 
+console.log(
+    true && true, 
+    true && false, 
+    false && true,
+    false && false
+    );
+console.log(
+    true || true,
+    true || false,
+    false || true,
+    false || false
+    );
+// il est aussi possible de les regrouper avec des parenthèses.
+console.log(
+    true || false && false,
+    (true || false) && false,
+    true || (false && false)
+);
+// De plus lors d'un "&&" si le premier paramètre est "false", le second ne sera pas effectué
+let nb = 0;
+console.log(false && ++nb, nb);
+// Pareillement, si le premier paramètre d'un "||" est "true", le second ne sera pas effectué.
+console.log(true || ++nb, nb);
+
+// Cela permet de court-circuiter le code et de ne pas effectuer des actions inutiles.

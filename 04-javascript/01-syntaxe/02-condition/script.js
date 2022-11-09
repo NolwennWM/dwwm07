@@ -60,6 +60,27 @@ switch(ville.toLowerCase())
     default:
         alert("Je ne connais pas");
 }
+//---------------------- ?. ------------------
+// les caractères ?. permettent le chaînage optionnel.
+let obj = {
+    info: "Cet objet est un exemple",
+    superInfo: {a: "rien"}
+},
+obj2 = null, obj3;
+/*
+    Il permet de vérifier si un élément existe avant de tenter d'accèder
+    à ses propriétés.
+    si je tente d'accèder à "undefined" ou "null" alors 
+    les éléments suivants ne s'executerons pas.
+    !ATTENTION, on ne peut pas l'utiliser pour attribuer une valeur.
+*/
+console.log(
+    obj?.info, 
+    obj?.info?.superInfo,
+    obj?.fake?.superInfo,
+    obj2?.info,
+    obj3?.info
+    );
 // ----------------------- ?? ------------------------
 let a, b = undefined, c = null, d = "chaussette", e = {nom:"Bruno"}, f = ["test"];
 // Le "??" permet de vérifier si la variable précédente est défini et dans le cas contraire, utiliser ce qui est donné apprès les "??"
