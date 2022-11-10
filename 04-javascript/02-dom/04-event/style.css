@@ -67,3 +67,6 @@ footer{
 .hidden{
     display: none;
 }
+header span{
+    display: inline-block;
+}
