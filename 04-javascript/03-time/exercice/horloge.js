@@ -1,0 +1,1 @@
+// Reproduire l'horloge sur le gif, (attention, le cadran n'est qu'une image de fond)
