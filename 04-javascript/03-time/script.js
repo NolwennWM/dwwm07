@@ -1,26 +1,35 @@
 "use strict";
+const copyright = document.querySelector('footer span');
+const mainTime = document.querySelector('main time');
+const mainBtn = document.querySelector('main button');
 
-// *Crée un objet date qui contient la date et l'heure du moment de sa création
-// Se renseigner sur l'objet date : "new Date();""
-// https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Date/Date
-
-// * Changer le span dans le footer par l'année en cours.
-
-
+let date = new Date();
+// console.log(date);
+copyright.textContent = date.getFullYear();
+// console.log(date.toLocaleTimeString());
 // toLocaleTimeString nous rend l'heure, les minutes et les secondes en un string.
-
+mainTime.textContent = date.toLocaleTimeString();
 // * Se renseigner sur la fonction setInterval()
 // https://developer.mozilla.org/en-US/docs/Web/API/setInterval
+function timer()
+{
+    const dateTimer = new Date();
+    mainTime.textContent = dateTimer.toLocaleTimeString();
+}
+let idInterval = setInterval(timer, 1000);
+mainBtn.addEventListener("click", ()=>clearInterval(idInterval));
 
-// * Créer un timer qui change à chaque seconde. avec un bouton stop qui permet de l'arrêter.
-// * se renseigner pour cela sur clearInterval :
-// https://developer.mozilla.org/en-US/docs/Web/API/clearInterval
+let idTimeout = setTimeout(()=>console.log("Coucou en retard !"), 3000);
 
+clearTimeout(idTimeout);
 
-// * Se renseigner sur setTimeout()
-// https://developer.mozilla.org/en-US/docs/Web/API/setTimeout
-
-// * Créer une fonction réccurcive (qui s'appelle elle même) utilisant setTimeout pour attendre 1 seconde avant de se lancer. Celle ci devra permettre de remplir la barre de progression visible sur le gif.
-// les traces noires sont un bug de la capture, ne pas en tenir compte
-
-// indice : la barre de progression est juste une div dont la largeur augmente jusqu'à 100%
+const progress = document.querySelector('.progress');
+let w = 0;
+function load()
+{
+    if(w === 100)return;
+    w++;
+    progress.style.width = w+"%";
+    setTimeout(load, 100);
+}
+load();

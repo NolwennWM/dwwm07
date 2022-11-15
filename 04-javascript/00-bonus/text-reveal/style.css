@@ -1,0 +1,18 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0;
+}
+main{
+    text-align: center;
+    font-size: clamp(1rem, 10vmin, 10rem);
+}
+main span{
+    opacity: 0;
+    transition: opacity 1s linear;
+}
