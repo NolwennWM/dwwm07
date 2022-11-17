@@ -33,3 +33,9 @@ main p:nth-child(odd){
     background-image: linear-gradient(to right, #feba3a, #fc3434);
     transition: transform 0.2s ease-out;
 }
+footer p {
+    padding: 700px 0;
+    font-size: 80px;
+    text-align: center;
+    background-color: #fc3434;
+}
