@@ -1,5 +1,9 @@
 "use strict";
-
+/* 
+    JSON signifie JavaScript Object Notation.
+    C'est un langage qui permet de transformer des données complexe comme un tableau ou un objet en string. Cela peut servir pour sauvegarder des données sous forme de string mais aussi pour transférer des données entre différents langages.
+    Par exemple un tableau PHP et un tableau JS ne s'écrivant pas de la même façon, impossible de communiquer entre eux, mais avec du JSON, cela devient possible.
+*/
 const form = document.querySelector("form");
 
 form.addEventListener("submit", saveData);
