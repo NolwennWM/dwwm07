@@ -9,4 +9,5 @@
  * 4. sauvegarder la liste en localstorage.
  * 5. afficher la liste sauvegardé au chargement de la page.
  * 6. éditer la liste lorsque l'on coche ou supprime un élément.
- */
+ * Bonus : Utiliser le drag and drop pour déplacer nos éléments dans la liste. il faudra penser à sauvegarder les éléments déplacé.
+*/
