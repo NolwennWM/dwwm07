@@ -1,0 +1,102 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  height: 100vh;
+  position: relative;
+}
+a {
+  text-decoration: none;
+}
+header {
+  width: 100vw;
+  height: 80px;
+  background-color: lightseagreen;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+h1 {
+  color: white;
+}
+nav {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  height: calc(100vh - 80px);
+  width: 20%;
+  background-color: lightblue;
+}
+ul {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  list-style: none;
+}
+li {
+  height: 40px;
+}
+li a {
+  line-height: 38px;
+  font-weight: bold;
+  color: black;
+}
+main {
+  background-color: lightgrey;
+  width: 80%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: calc(100vh - 80px);
+}
+h2 {
+  text-align: center;
+  height: 80px;
+  line-height: 80px;
+}
+.video {
+  position: relative;
+  width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+video {
+  width: 100%;
+}
+.video button {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.2);
+  height: 30px;
+  width: 30px;
+  border: none;
+}
+.small {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 80%;
+}
+form {
+  padding: 20px;
+}
+form label {
+  display: block;
+  margin-bottom: 20px;
+}
+form input {
+  width: 300px;
+}
