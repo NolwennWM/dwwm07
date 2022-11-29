@@ -1,0 +1,35 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.div1{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 600px;
+    background-color: rgb(65, 65, 65);
+    width: 200px;
+    flex-direction: column;
+}
+.div1 div{
+    background-color: black;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+.red{
+    background-color: red !important;
+}
+div.green{
+    background-color: green;
+}
+.div1 .orange{
+    background-color: orange;
+}
