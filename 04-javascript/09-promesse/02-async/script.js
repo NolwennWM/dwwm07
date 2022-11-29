@@ -17,9 +17,49 @@ fetch("tab.json").then(res=>{
         .catch(err=>console.log(err))
     }
 })
+/* 
+    pour éviter ces enfers de callback.
+    On a les mots clefs "async" et "await" qui entre en jeu.
+    "async" ne sert qu'à déclarer qu'on va utiliser des "await" dans la fonction.
+    "await" ne peut être utilisé que dans une fonction "async".
 
-
-
+    "async" se place devant la déclaration de la fonction.
+    "await" se place devant une promesse, et indique au script, qu'il doit attendre le résultat de la promesse, pour continuer.
+*/
+async function exemple()
+{
+    let data;
+    // J'attend le résultat de mon fetch pour continuer.
+    let resp = await fetch("tab.json");
+    // La variable se retrouve avec le paramètre habituellement donnée au .then() alors que sans le await, fetch nous retourne l'objet "Promise";
+    console.log(resp);
+    if(resp.ok)
+    {
+        /* 
+            avec async await, on ne recupère que le .then()
+            donc si on a besoin de catch ou de finally, 
+            on pourra utiliser la structure try catch finally;
+        */
+        try{
+            data = await resp.json();
+            let message = await tri(data);
+            console.log(message, data);
+        }
+        catch(err)
+        {
+            console.log(err);
+        }
+    }
+}
+exemple();
+async function burger()
+{
+    console.log(await pain2());
+    console.log(await sauce2());
+    console.log(await viande2());
+    console.log(await salade2());
+    console.log("Mon burger est terminé");
+}
 // FONCTIONS DU COURS ET EXERCICE PRECEDENT :
 
 function pain2()
