@@ -1,0 +1,25 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    padding-top: 1rem;
+}
+.btns{
+    display: flex;
+    justify-content: space-around;
+    font-size: 2rem;
+}
+.anime{
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    border: 2px solid black;
+    position: relative;
+}
+.b4{
+    opacity: 0;
+    transition: opacity 2s linear;
+}
