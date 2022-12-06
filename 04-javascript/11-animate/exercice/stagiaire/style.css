@@ -1,0 +1,45 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div.barre{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 200px;
+    padding: 20px;
+    background-color: black;
+  }
+  
+  .animation{
+    display: flex;
+    text-align: center;
+    font-style: bold;
+    font-size: 100px;
+    margin-top: 25%;
+  }
+  .animation span{
+    position: relative;
+  }
+
+  .left, .right, .barre{
+    position: absolute;
+    width: 250px;
+    top:50%;
+    left: 50%;
+  }
+  .left{
+    overflow: hidden;
+    transform: translate(-100%, -50%);
+    width: fit-content;
+  }
+
+  .right{
+    overflow: hidden;
+    width: fit-content;
+    transform: translate(0, -50%);
+  }
+
+ 
