@@ -130,7 +130,10 @@ let img = new Image();
 // je lui donne une source.
 img.src = "../../ressources/images/favicon.ico";
 // On attend le chargement de l'image avant de la dessiner.
-img.onload = ()=>ctx.drawImage(img, 50,250, 100, 100)
+img.onload = ()=>{
+    ctx.drawImage(img, 50,250, 100, 100)
+    snapshot = ctx.getImageData(0,0, canvas.width, canvas.height)
+}
 // les paramètres sont l'image, la position x, la position y, la largeur et la hauteur.
 // img.onload = cercle;
 
@@ -168,3 +171,4 @@ ctx.lineCap = "butt";
 ctx.moveTo(800, 40);
 ctx.lineTo(800, 400);
 ctx.stroke();
+snapshot = ctx.getImageData(0,0, canvas.width, canvas.height)
