@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les templates et slot</title>
+    <script src="./script.js" defer type="module"></script>
+</head>
+<body>
+    <super-card>
+        <span slot="title">Voici mon titre !</span>
+        <strong slot="paragraphe">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia asperiores commodi vel maxime, suscipit sint iusto tempora aperiam. Iure animi dolor magni enim facilis? Eveniet numquam rem temporibus deserunt ex.</strong>
+        <img src="../../../ressources/images/favicon.ico" alt="image" slot="link">
+    </super-card>
+    <super-card>
+        <em slot="title">Titre cool !</em>
+        <span slot="paragraphe">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur asperiores ullam provident vitae at enim beatae neque omnis cumque ducimus, vel praesentium aliquam explicabo inventore odit deleniti. Animi, laborum maxime!</span>
+        <strong slot="link">Lien en gras!</strong>
+    </super-card>
+    <template id="card">
+        <div class="card">
+            <h2>titre</h2>
+            <p>paragraphe</p>
+            <a href="#">lien</a>
+        </div>
+    </template>
+    <template id="superCard">
+        <style>
+            .card{
+                width: 25%;
+                border: 1px solid black;
+                border-radius: 5px;
+                box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+                display: inline-block;
+                padding: 1rem;
+            }
+            h2{
+                text-align: center;
+            }
+            p{
+                text-align: justify;
+            }
+            a{
+                display: block;
+                text-align: right;
+            }
+        </style>
+        <div class="card">
+            <h2><slot name="title">titre</slot></h2>
+            <p><slot name="paragraphe">paragraphe</slot></p>
+            <a href=""><slot name="link">link</slot></a>
+        </div>
+    </template>
+</body>
+</html>
