@@ -1,0 +1,41 @@
+body{
+	margin: 0;
+	display: grid;
+	height: 100vh;
+	grid-template-rows: repeat(2,1fr);
+	grid-template-columns: repeat(2, 1fr);
+}
+#img{
+	height: 100%;
+	aspect-ratio: 1/1;
+	margin: auto;
+	background-image: url("pendu.svg"); 
+	background-repeat: no-repeat;
+	background-size: cover;
+	transition: background-position .5s linear;
+}
+#word{
+	display: flex;
+	justify-content: space-around;
+	font-size: 4rem;
+	width: 80vw;
+	margin: auto;
+}
+#keyboard{
+	grid-column: 1/3;
+	width: 80vw;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+#keyboard >div{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+#keyboard button{
+	width: calc(10% - 5px);
+	margin: 2px;
+}
