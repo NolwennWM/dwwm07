@@ -31,7 +31,7 @@ Cet affichage est un peu austère. améliorons cela:
 
 remplacez les boutons par des cartes face caché qui se retournerons lors du clique sur celles ci.
 
-Faites de même pour la zone de jeu de l'IA, si ce n'est ci se retourneront lors du choix de l'IA.
+Faites de même pour la zone de jeu de l'IA, ci ce n'est qu'elles se retourneront lors du choix de l'IA.
 
 Pour le confort de l'utilisateur, montrez sur les cartes de l'utilisateur leurs signification.
 
