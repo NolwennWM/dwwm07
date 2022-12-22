@@ -11,5 +11,7 @@
         "src/03-exercice.ts",
         "src/04-narrowing.ts",
         "src/05-alias.ts",
+        "src/06-classes.ts",
+        "src/08-enum.ts",
     ]
 }
