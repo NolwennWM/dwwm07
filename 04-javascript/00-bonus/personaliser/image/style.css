@@ -1,0 +1,49 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.gallery{
+    width: 80%;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.img-container{
+    position: relative;
+    width: calc(50% - 1rem);
+}
+.img-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.img-container .controls{
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 3rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 5px 1rem;
+    transition: opacity 0.3s linear;
+}
+.img-container:hover .controls{
+    opacity: 1;
+}
+.img-container button{
+    height: fit-content;
+    background-color: transparent;
+    border: none;
+    fill: white;
+    cursor: pointer;
+}
+.img-container svg{
+    height: 1.5rem;
+    aspect-ratio: 1/1;
+}
