@@ -1,3 +1,33 @@
 <h1>Bienvenue sur {{title}}</h1>
-<h2>{{ recetteList[0] }}</h2>
+<h2>{{ recetteList[0].name }}</h2>
+
+<!-- La propriété entre crochet suivi d'un égale  puis de la valeur à lui donner. -->
+<a [href]="recetteList[0].name">exemple 1</a>
+
+<!-- De même avec "attr" puis le nom de l'attribut à changer -->
+<a [attr.href]="recetteList[0].name">exemple 2</a>
+
+<!-- Avec le mot class suivi du nom d'une classe, je peux indiquer 
+entre les guillemets une condition qui si elle est "true" donnera la classe à notre élément HTML. -->
+<div [class.super]="5>10">exemple 3</div>
+
+<!-- Ici je modifie la propriété css "color" selon une ternaire. -->
+<div [style.color]="5>10?'red':'green'">exemple 4</div>
+
+<!-- Quelques interpolation possible avec angular, il en existe d'autres. -->
+
+<!-- Ici on ajoute un évènement au clique qui lance la fonction entre guillemet -->
+<!-- <p (click)="selectRecette(recetteList[0])">{{recetteList[0].name}}</p> -->
+<!-- Avec $event on indique que l'on passe notre évènement à la fonction. -->
+<!-- <input type="number" (input)="selectRecette($event)"> -->
+<!-- 
+  On a ici un évènement à l'input ne lançant aucune fonction
+  puis la création d'une variable(propriété) qui va contenir notre input.
+  Et enfin un p qui affiche le contenu de notre input.
+ -->
+<input type="number" #inputRecette (keyup.enter)="selectRecette(inputRecette.value)">
+<p *ngIf="recetteSelected">Vous avez selectionné : {{recetteSelected.name}}</p>
+<p *ngIf="!recetteSelected">Aucune recette selectionnée</p>
+
+<p *ngFor="let rec of recetteList">{{rec.name}}</p>
 <router-outlet></router-outlet>
