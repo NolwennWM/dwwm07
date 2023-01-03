@@ -32,7 +32,7 @@ entre les guillemets une condition qui si elle est "true" donnera la classe à n
 <p *ngFor="let rec of recetteList">{{rec.name}}</p>
 
 <div class="container">
-  <div class="recette" *ngFor="let rec of recetteList">
+  <div class="recette" *ngFor="let rec of recetteList" appBorderCard="red">
       <div class="image">
           <img src="./assets/photos/{{rec.image}}" alt="{{rec.name}}">
       </div>
