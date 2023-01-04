@@ -1,0 +1,3 @@
+<h2>Editer {{recette?.name}}</h2>
+<app-recette-form *ngIf="recette" [recette]="recette"></app-recette-form>
+<p *ngIf="!recette">Aucune Recette Sélectionnée</p>

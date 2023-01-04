@@ -15,7 +15,7 @@ Et enfin un p qui affiche le contenu de notre input.
 <p *ngFor="let rec of recetteList">{{rec.name}}</p>
 
 <div class="container">
-<div class="recette" *ngFor="let rec of recetteList" appBorderCard="red">
+<div class="recette" *ngFor="let rec of recetteList" appBorderCard="red" (click)="goToRecette(rec)">
     <div class="image">
         <img src="./assets/photos/{{rec.image}}" alt="{{rec.name}}">
     </div>
