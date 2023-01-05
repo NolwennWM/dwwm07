@@ -20,10 +20,14 @@ export class DetailRecetteComponent implements OnInit{
     ){}
   ngOnInit()
   {
-    this.recetteList = this.recetteService.getRecetteList();
+    this.recetteService.getRecetteList().subscribe(
+      liste=>this.recetteList = liste
+    );
     const recetteId: number = parseInt(this.route.snapshot.paramMap.get("id")??"");
     console.log(recetteId);
-    this.recette = this.recetteService.getRecetteById(recetteId);
+    this.recetteService.getRecetteById(recetteId).subscribe(
+      recette=>this.recette = recette
+    );
     // this.recette = this.recetteList.find(rec=>rec.id === recetteId);
   }
   goToRecetteList()
@@ -33,5 +37,13 @@ export class DetailRecetteComponent implements OnInit{
   goToEditRecette()
   {
     this.router.navigate(["/edit/recette", this.recette?.id]);
+  }
+  deleteRecette()
+  {
+    if(!this.recette)return;
+    if(confirm("Êtes vous sûr de vouloir supprimer cette recette ?"))
+      this.recetteService.deleteRecetteById(this.recette.id).subscribe(
+        ()=>this.goToRecetteList()
+      )
   }
 }

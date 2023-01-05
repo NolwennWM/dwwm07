@@ -1,5 +1,7 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Recette } from '../Recette';
 import { RecetteService } from '../recette.service';
 
@@ -14,12 +16,18 @@ export class EditRecetteComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private recetteService: RecetteService
+
     ){}
     
   ngOnInit()
   {
-    this.recetteList = this.recetteService.getRecetteList();
+    this.recetteService.getRecetteList().subscribe(
+      liste=>this.recetteList = liste
+    );
     const recetteId: number = parseInt(this.route.snapshot.paramMap.get("id")??"");
-    this.recette = this.recetteService.getRecetteById(recetteId);
+    console.log(recetteId);
+    this.recetteService.getRecetteById(recetteId).subscribe(
+      recette=>this.recette = recette
+    );
   }
 }
