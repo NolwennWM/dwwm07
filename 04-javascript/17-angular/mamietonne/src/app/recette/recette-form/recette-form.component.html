@@ -54,7 +54,7 @@
             cols="30" 
             rows="10" 
             required 
-            pattern=".{25,}"
+            pattern=".{25,}(\n|.)*"
             [(ngModel)]="recette.description"
             #description="ngModel"></textarea>
         <div class="error" [hidden]="description.valid || description.pristine">
@@ -84,7 +84,7 @@
             cols="30" 
             rows="10" 
             required 
-            pattern=""
+            pattern=".{5,}(\n|.)*"
             [(ngModel)]="ingredientsList"
             #ingredients="ngModel"></textarea>
         <div class="error" [hidden]="ingredients.valid || ingredients.pristine">
@@ -98,7 +98,7 @@
             cols="30" 
             rows="10" 
             required 
-            pattern=""
+            pattern=".{5,}(\n|.)*"
             [(ngModel)]="stepsList"
             #steps="ngModel"></textarea>
         <div class="error" [hidden]="steps.valid || steps.pristine">
