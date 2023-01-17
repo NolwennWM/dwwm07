@@ -64,4 +64,33 @@ foreach($a as $food)
 {
     echo $food, "<br>";
 }
+/* 
+    En précisant deux variables séparé de "=>" après le as, on récupère 
+    la clef en plus de la valeur.
+    Cela peut être particulièrement utile sur un tableau associatif.
+*/
+foreach($a as $key => $value)
+{
+    echo $key . " : " . $value . " <br>";
+}
+// structure avec ":" et "end"
+foreach($a as $v):
+    echo $v, "<br>";
+endforeach;
+// structure sur une seule ligne 
+foreach($a as $v)
+    echo $v, "<br>";
+# -------------------------------------------------
+echo "<h2> CONTINUE et BREAK </h2>";
+/* 
+    les mots clef continue et break fonctionnent sur n'importe quel type de boucle.
+    Continue met fin à l'itération actuel et passe à la suivante.
+    Break met fin à la boucle.
+*/
+foreach($a as $food)
+{
+    if($food === "spaghetti") continue;
+    if($food === "mayonnaise") break;
+    echo $food, "<br>";
+}
 ?>
