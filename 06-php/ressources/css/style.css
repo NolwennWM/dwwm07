@@ -14,13 +14,16 @@ main
     background-color: beige;
     padding: 1vw;
 }
-main.includeNav
+/* main.includeNav */
+/* ne fonctionne pas encore sous firefox */
+main:has(nav)
 {
     display: grid;
     grid-template-columns: 100px 1fr;
     padding: 0;
 }
-main.includeNav nav
+/* main.includeNav nav */
+main nav
 {
     grid-row: 1/-1;
 }

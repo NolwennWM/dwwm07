@@ -38,6 +38,28 @@ echo $_SESSION["username"]["nom"]. " "
     .$_SESSION["username"]["prenom"] . " aime la "
     .$_SESSION["food"] . " et a "
     .$_SESSION["age"]. " ans <br>";
+
+// Supprimer un élément de la session.
+unset($_SESSION["food"]);
+// Supprimer la session en entier :
+session_destroy();
+/* 
+    Si on recharge, la session ne sera plus là,
+    Mais tant qu'on n'a pas rechargé, les données de la superglobal $_SESSION existent toujours.
+
+    On utilisera donc unset sur la superglobal pour la supprimer.
+*/
+unset($_SESSION);
+// Pour supprimer un cookie, je lui donne une durée de vie négative.
+setcookie("PHPSESSID", "", time()-3600);
+// Il est aussi possible de créer plusieurs sessions de noms différents.
+session_name("USERSESSION");
+/* 
+    session_name permet de selectionner une nouvelle session avant de la commencer.
+    Si la session n'existe pas elle sera créé.
+*/
+session_start();
+$_SESSION["legume"]="carotte";
 ?>
 <a href="./07-a-session.php">Page 1</a>
 <?php require "../ressources/template/_footer.php" ?>
