@@ -38,6 +38,69 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['upload']))
             basename() va retourner le dernier composant d'un chemin.
         */
         $oldName = basename($_FILES["superFichier"]["name"]);
+        /* 
+            Un problème avec l'upload de fichier, c'est la possibilité que deux fichiers portent le même nom.
+            On aura donc la possibilité de renommer le fichier.
+
+            Ici, j'utilise "uniqid()" pour générer un string aléatoire à concatener au nom du fichier.
+            Par défaut il génère 13 caractères, mais si son second paramètre est à true, il passe alors à 23.
+            Son premier paramètre permet d'y ajouter un prefix.
+        */
+        $target_name = uniqid(time()."-", true)."-".$oldName;
+        // var_dump($target_name);
+        /* 
+            Je concatène le chemin vers le dossier "upload" au nom du fichier.
+
+            Je ne le fais pas ici mais je pourrais créer des dossiers par mois ou par utilisateur.
+            Pour cela j'utiliserais "is_dir()" pour vérifier si le dossier existe déjà. 
+            Et "mkdir()" pour créer un nouveau dossier.
+
+            Ensuite je n'aurais plus qu'à l'ajouter à mon chemin ci dessous.
+        */
+        $target_file = $target_dir . $target_name;
+        /* 
+            J'utilise "mime_content_type" pour aller vérifier le contenu de mon fichier dans sa zone temporaire,
+            Puis en déduire le type mime.
+            Cela est plus sécurisé que de juste vérifier l'extension, qui peut être facilement changé.
+        */
+        $mime_type = mime_content_type($_FILES["superFichier"]["tmp_name"]);
+        /* 
+            Bien qu'inutile vu le surnom que j'ai donné à mon fichier plus tôt,
+            Je vérifie si j'ai déjà un fichier de même nom dans mon dossier d'upload.
+        */
+        if(file_exists($target_file))
+            $error = "Ce fichier existe déjà";
+        /* 
+            Je vérifie la taille de mon fichier, 
+            il ne faudrait pas que l'utilisateur téléverse des fichiers de plusieurs giga.
+            la taille est donnée en "octet" donc vous pouvez voir assez grand, ici avec 500 000 on n'est même pas à 1mo.
+
+            Rappel que la taille maximum d'upload ainsi que de donnée envoyé en POST ont un paramètre modifiable dans le fichier "php.ini".
+        */
+        if($_FILES["superFichier"]["size"] > 500000)
+            $error = "Ce fichier est trop gros.";
+        /* 
+            Enfin on vérifie si le type mime du fichier est dans notre tableau de type mime acceptés.
+        */
+        if(!in_array($mime_type, $typePermis))
+            $error = "Ce type de fichier n'est pas accepté.";
+        // Si on a aucune erreur.
+        if(empty($error))
+        {
+            /* 
+                "move_uploaded_file" va déplacé un fichier depuis sa zone temporaire jusqu'à son emplacement définitif.
+
+                Elle retournera un boolean indiquant si le déplacement s'est bien passé.
+
+                Ici placé directement dans un if pour ajuster la suite selon si le fichier a bien été déplacé.
+            */
+            if(move_uploaded_file($_FILES["superFichier"]["tmp_name"], $target_file))
+            {
+                // Si tout s'est bien passé, on pourra sauvegarder le nom en BDD.
+            }
+            else
+                $error = "Erreur lors du téléversage";
+        }
     }
 }
 $title = "Upload de Fichier";
