@@ -1,0 +1,19 @@
+Le mot de passe du keepass de cours est "Azerty123+";
+
+le site de keepass est "https://keepass.info/";
+
+keepass est un gestionnaire de mot de passe hors ligne.
+C'est un logiciel qui a pour but de générer et sauvegarder des mots de passe complexe style :
+"q=Lp.ZFEn+2eIW+4IpKA" et d'un copier collé ou bien via un raccourci clavier, rentrer votre mot de passe 
+sur le site correspondant.
+
+Cela permet de retenir seulement le mot de passe du logiciel et pouvoir avoir des mots de passe complexe 
+sur chaque autres sites / logiciel.
+
+keepass est un logiciel hors ligne, c'est à dire que :
+    1. Aucune connexion n'est necessaire pour avoir accès à ses mots de passe.
+    2. Si vous avez besoin d'accèder à vos mots de passe sur une autre machine, vous devez 
+        transférer le fichier de votre bdd de mot de passe manuellement.
+
+Il existe d'autres logiciels de gestion de mot de passe dont certains où vos mots de passes sont stocké
+en ligne. facilitant l'accès à vos mots de passe sur tous vos appareils.
