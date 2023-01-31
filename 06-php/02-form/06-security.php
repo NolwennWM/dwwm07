@@ -1,5 +1,6 @@
 <?php 
 session_start();
+require "../ressources/service/_csrf.php";
 /* 
     Une attaque connue possible sur un site web est l'attaque XSS (Cross-Site Scripting).
     Le principe de ce genre d'attaque, est d'insérer des scripts étranger à notre page.
@@ -68,9 +69,18 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['hash']))
         ou si celui envoyé par le formulaire est différent de celui en session,
         J'ai une erreur.
     */
-
     if(!isset($_POST["captcha"], $_SESSION["captchaStr"]) || $_POST["captcha"] != $_SESSION["captchaStr"])
     $error = "Captcha incorrecte !";
+    /* 
+        On s'est protégé des bots via un captcha (celui ci est très simple, pour un site un peu pro, préférez un captcha développé par des professionnels)
+        Mais on ne va pas placer de captcha sur tous nos formulaires, l'utilisateur en aura vite marre.
+        Gardons celui ci pour les formulaires des utilisateurs non inscrit.
+
+        Il nous reste une faille à voir, ce sont les attaques CSRF.
+        L'attaque Cross Site Request Forgery
+    */
+    if(!isCSRFValid())
+        $error = "La méthode utilisée n'est pas permise !";
 }
 $title = "Sécurité";
 require "../ressources/template/_header.php";
@@ -86,9 +96,20 @@ require "../ressources/template/_header.php";
         <input type="text" name="captcha" id="captcha" pattern="[A-Z0-9]{6}">
     </div>
     <!-- fin captcha -->
+    <!-- début CSRF -->
+    <?php setCSRF(5); ?>
+    <!-- fin CSRF -->
     <input type="submit" name="hash" value="hasher">
     <br>
     <span class="error"><?php echo $error??"" ?></span>
+</form>
+<!-- Exemple d'attaque CSRF -->
+<form action="http://php.localhost/02-form/02_post.php" method="post">
+    <input type="text" name="username" placeholder="pseudonyme">
+    <input type="hidden" name="food" value="welsh">
+    <input type="hidden" name="drink" value="milkshake">
+    <input type="hidden" name="cgu" value="cgu">
+    <input type="submit" value="envoyer" name="meal">
 </form>
 <?php if(empty($error) && !empty($password)): ?>
     <!-- 
