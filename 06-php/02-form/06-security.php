@@ -1,4 +1,5 @@
 <?php 
+session_start();
 /* 
     Une attaque connue possible sur un site web est l'attaque XSS (Cross-Site Scripting).
     Le principe de ce genre d'attaque, est d'insérer des scripts étranger à notre page.
@@ -62,12 +63,29 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['hash']))
             (On parlera des injections SQL lorsque nous communiqueront avec la BDD)
         */
     }
+    /* 
+        Si aucun captcha n'est envoyé par le formulaire ou si il n'existe pas en session,
+        ou si celui envoyé par le formulaire est différent de celui en session,
+        J'ai une erreur.
+    */
+
+    if(!isset($_POST["captcha"], $_SESSION["captchaStr"]) || $_POST["captcha"] != $_SESSION["captchaStr"])
+    $error = "Captcha incorrecte !";
 }
 $title = "Sécurité";
 require "../ressources/template/_header.php";
 ?>
 <form action="" method="post">
     <input type="password" name="password" placeholder="Mot de passe à hasher" required>
+    <!-- début captcha -->
+    <div>
+        <label for="captcha">Veuillez recoppier le texte ci-dessous pour valider :</label>
+        <br>
+        <img src="../ressources/service/_captcha.php" alt="CAPTCHA">
+        <br>
+        <input type="text" name="captcha" id="captcha" pattern="[A-Z0-9]{6}">
+    </div>
+    <!-- fin captcha -->
     <input type="submit" name="hash" value="hasher">
     <br>
     <span class="error"><?php echo $error??"" ?></span>
