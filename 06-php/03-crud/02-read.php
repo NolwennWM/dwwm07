@@ -34,7 +34,7 @@ require "../ressources/template/_header.php";
                         <!-- TODO: Afficher éditer et supprimer seulement si on est connecté avec l'utilisateur. -->
                         <a href="">Voir</a>
                         &nbsp;|&nbsp;
-                        <a href="">Editer</a>
+                        <a href="./03-update.php?id=<?= $row["idUser"] ?>">Editer</a>
                         &nbsp;|&nbsp;
                         <a href="">Supprimer</a>
                     </td>
@@ -47,4 +47,5 @@ require "../ressources/template/_header.php";
 <?php 
 endif;
 require "../ressources/template/_footer.php";
+// "<?="  est un raccourci pour "<?php echo"
 ?>
