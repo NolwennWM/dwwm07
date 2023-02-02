@@ -14,6 +14,46 @@ main
     background-color: beige;
     padding: 1vw;
 }
+/* Sommaire */
+.sommaire
+{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.sommaire h3
+{
+    margin-bottom: 15px;
+}
+.sommaire > li
+{
+    padding: 20px;
+    list-style: none;
+    border: 2px solid gray;
+    border-radius: 5px;
+}
+.sommaire li
+{
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+.sommaire > :nth-child(1)
+{
+    background-color: darkseagreen;
+}
+.sommaire > :nth-child(2)
+{
+    background-color:plum;
+}
+.sommaire > :nth-child(3)
+{
+    background-color:skyblue;
+}
+.sommaire > :nth-child(4)
+{
+    background-color:tomato;
+}
+/* Fin Sommaire */
 /* main.includeNav */
 /* ne fonctionne pas encore sous firefox */
 main:has(nav)

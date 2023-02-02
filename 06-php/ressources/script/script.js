@@ -1,2 +1,12 @@
 "use strict";
-console.log("coucou");
+const del = document.querySelectorAll('a[href*="delete"]');
+
+if(del.length)
+{
+    del.forEach(d=>d.addEventListener("click",e=>{
+        if(!confirm("Êtes vous sûr de vouloir supprimer cela?"))
+        {
+            e.preventDefault();
+        }
+    }))
+}

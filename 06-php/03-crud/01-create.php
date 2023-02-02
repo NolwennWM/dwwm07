@@ -102,7 +102,8 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['inscription']))
             Avec l'obligation de respecter l'ordre dans lequel on a donné les "?"
         */
         $sql->execute([$username, $email, $password]);
-        //TODO : rediriger vers la page de connexion
+        header("Location: ./exercice/connexion.php");
+        exit;
     }
 }
 
