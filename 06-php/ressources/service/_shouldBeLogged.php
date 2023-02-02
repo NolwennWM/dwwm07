@@ -1,5 +1,5 @@
 <?php 
-if(session_start() === PHP_SESSION_NONE)
+if(session_status() === PHP_SESSION_NONE)
     session_start();
 /**
  * Vérifie si l'utilisateur est connecté ou non, et le redirge dans le cas contraire.
