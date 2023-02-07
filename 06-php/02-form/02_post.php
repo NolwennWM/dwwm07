@@ -39,11 +39,6 @@ $drinkList = [
 ];
 
 /* 
-    On trouvera dans la superglobal $_SERVER, la méthode utilisé pour arrivé sur cette page.
-    Par défaut, aller d'une page à une autre, se fait en méthode "POST"
-*/
-var_dump($_SERVER["REQUEST_METHOD"]);
-/* 
     Pour commencer la vérification de mon formulaire, je vais vérifier deux points.
     Si la méthode correspond à celle de mon formulaire, (Ici "POST")
     et si j'ai au moins un champ de ce formulaire (par exemple celui du bouton submit).

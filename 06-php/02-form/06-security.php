@@ -89,7 +89,7 @@ require "../ressources/template/_header.php";
     <input type="password" name="password" placeholder="Mot de passe à hasher" required>
     <!-- début captcha -->
     <div>
-        <label for="captcha">Veuillez recoppier le texte ci-dessous pour valider :</label>
+        <label for="captcha">Veuillez recopier le texte ci-dessous pour valider :</label>
         <br>
         <img src="../ressources/service/_captcha.php" alt="CAPTCHA">
         <br>
