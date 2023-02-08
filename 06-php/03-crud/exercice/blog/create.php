@@ -12,8 +12,16 @@ if($_SERVER['REQUEST_METHOD']=='POST')
     {
         $message = cleanData($_POST["message"]);
         $pdo = connexionPDO();
-        $sql = $pdo->prepare("INSERT INTO messages(message, idUser) VALUES (?, ?)");
-        $sql->execute([$message, (int)$_SESSION["idUser"]]);
+        if(empty($_POST["categorie"]))
+        {
+            $sql = $pdo->prepare("INSERT INTO messages(message, idUser) VALUES (?, ?)");
+            $sql->execute([$message, (int)$_SESSION["idUser"]]);
+        }
+        else
+        {
+            $sql = $pdo->prepare("INSERT INTO messages(message, idUser, idCat) VALUES (?, ?, ?)");
+            $sql->execute([$message, (int)$_SESSION["idUser"], $_POST["categorie"]]);
+        }
         $_SESSION["flash"] = "Votre message a bien été envoyé";
     }
 }

@@ -34,15 +34,24 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['updateMessage']))
     }
     if(empty($error))
     {
-        $sql = $pdo->prepare("UPDATE messages SET message = ?, editedAt = current_timestamp() WHERE idMessage = ?");
-        $sql->execute([$m, $message["idMessage"]]);
+        if(empty($_POST["categorie"]))
+        {
+            $sql = $pdo->prepare("UPDATE messages SET message = ?, editedAt = current_timestamp(), idCat = NULL WHERE idMessage = ?");
+            $sql->execute([$m, $message["idMessage"]]);
+        }
+        else
+        {
+            $sql = $pdo->prepare("UPDATE messages SET message = ?, editedAt = current_timestamp(), idCat = ? WHERE idMessage = ?");
+            $sql->execute([$m,$_POST["categorie"], $message["idMessage"]]);
+        }
 
         $_SESSION["flash"] = "Message édité !";
         header("Location: ./read.php?id=".$_SESSION["idUser"]);
         exit;
     }
 }
-
+$sql = $pdo->query("SELECT * FROM categories ORDER BY nom ASC");
+$categories = $sql->fetchAll();
 $title = "Mise à jour de message";
 require "../../../ressources/template/_header.php";
 ?>
@@ -51,6 +60,18 @@ require "../../../ressources/template/_header.php";
     ><?php echo $message["message"] ?></textarea>
     <span class="error"><?php echo $error["message"]??"" ?></span>
     <br>
+    <div>
+        <select name="categorie">
+            <option value="">Selection de Catégorie</option>
+            <?php foreach($categories as $cat): ?>
+                <option value="<?php echo $cat["idCat"] ?>"
+                <?php if($message["idCat"] == $cat["idCat"]) echo "selected" ?>
+                >
+                    <?php echo $cat["nom"] ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
     <input type="submit" value="Mettre à jour" name="updateMessage">
 </form>
 <?php 

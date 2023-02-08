@@ -9,7 +9,15 @@ if(isset($_GET['id']))
 {
     $id = $_GET['id'];
     $pdo = connexionPDO();
-    $sql = $pdo->prepare("SELECT m.*, c.nom as categorie FROM messages m LEFT JOIN categories c ON c.idCat = m.idCat WHERE idUser = :id");
+    if(empty($_GET["cat"]))
+    {
+        $sql = $pdo->prepare("SELECT m.*, c.nom as categorie FROM messages m LEFT JOIN categories c ON c.idCat = m.idCat WHERE idUser = :id");
+    }
+    else
+    {
+        $sql = $pdo->prepare("SELECT m.*, c.nom as categorie FROM messages m LEFT JOIN categories c ON c.idCat = m.idCat WHERE idUser = :id AND m.idCat = :cat");
+        $sql->bindValue(":cat", (int)$_GET["cat"]);
+    }
     $sql->bindParam(':id', $id);
     $sql->execute();
     $messages = $sql->fetchAll();
@@ -26,6 +34,8 @@ if(isset($_SESSION["flash"]))
     $flash = $_SESSION["flash"];
     unset($_SESSION["flash"]);
 }
+$sql = $pdo->query("SELECT * FROM categories ORDER BY nom ASC");
+$categories = $sql->fetchAll();
 if($flash):
 ?>
 <div class="flash">
@@ -33,12 +43,25 @@ if($flash):
 </div>
 <?php
 endif;
+?>
+<a href="?id=<?php echo $_GET["id"] ?>">Toutes les categories</a>
+<?php
 if($logged):
 ?>
 <form action="./create.php" method="post">
-    <div class="form-group">
+    <div>
         <label for="message">Message :</label>
         <textarea name="message" id="message" cols="30" rows="10"></textarea>
+    </div>
+    <div>
+        <select name="categorie">
+            <option value="">Selection de Catégorie</option>
+            <?php foreach($categories as $cat): ?>
+                <option value="<?php echo $cat["idCat"] ?>">
+                    <?php echo $cat["nom"] ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
     </div>
     <button type="submit">Enregistrer</button>
 </form>
