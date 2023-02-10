@@ -56,7 +56,7 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['update']))
         {
             $error["passwordBis"] = "Veuillez saisir le même mot de passe";
         }
-        if(!preg_match($regex, $password))
+        if(!preg_match($regexPass, $password))
         {
             $error["password"] = "Veuillez saisir un mot de passe valide";
         }
