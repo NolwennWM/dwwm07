@@ -36,7 +36,7 @@ function getMessageById(int $id): array|false
 function getMessageByUserAndCategory(int $idUser, int $idCat):array|false
 {
     $pdo = connexionPDO();
-    $sql = $pdo->prepare("SELECT m.*, c.nom as categorie FROM messages m LEFT JOIN categories c ON c.idCat = m.idCat WHERE idUser = ? AND idCat = ? ORDER BY m.createdAt DESC");
+    $sql = $pdo->prepare("SELECT m.*, c.nom as categorie FROM messages m LEFT JOIN categories c ON c.idCat = m.idCat WHERE idUser = ? AND m.idCat = ? ORDER BY m.createdAt DESC");
     $sql->execute([$idUser, $idCat]);
     return $sql->fetchAll();
 }

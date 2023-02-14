@@ -1,6 +1,6 @@
 <?php 
 $title = "MVC - Liste des messages";
-require "../../../ressources/template/_header.php";
+require __DIR__."/../../../ressources/template/_header.php";
 
 if($flash):
 ?>
@@ -61,7 +61,7 @@ if($messages):
                         <a href="/05-mvc/message/update?id=<?php echo $row['idMessage'];?>">
                             update
                         </a>
-                        <a href="/O5-mvc/message/delete?id=<?php echo $row['idMessage'];?>">
+                        <a href="/05-mvc/message/delete?id=<?php echo $row['idMessage'];?>">
                             delete
                         </a>
                         <?php endif; ?>
@@ -74,5 +74,5 @@ if($messages):
     <p>Aucun message trouvé</p>
 <?php 
 endif;
-require "../../../ressources/template/_footer.php";
+require __DIR__."/../../../ressources/template/_footer.php";
 ?>
