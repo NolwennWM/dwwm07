@@ -74,16 +74,10 @@ require "./ressources/template/_header.php";
             <h3>03 - CRUD :</h3>
             <ol>
                 <li>
-                    <a href="./03-crud/01-create.php">Create</a>
+                    <a href="./03-crud/02-read.php">Liste Utilisateur</a>
                 </li>
                 <li>
-                    <a href="./03-crud/02-read.php">Read</a>
-                </li>
-                <li>
-                    <a href="./03-crud/03-update.php">Update</a>
-                </li>
-                <li>
-                    <a href="./03-crud/04-delete.php">Delete</a>
+                    <a href="./03-crud/01-create.php">Inscription</a>
                 </li>
                 <li>
                     <h4>Exercice :</h4>
@@ -93,6 +87,72 @@ require "./ressources/template/_header.php";
                         </li>
                         <li>
                             <a href="./03-crud/exercice/deconnexion.php">déconnexion</a>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </li>
+        <li>
+            <h3>04 - ROUTER :</h3>
+            <ol>
+                <li>
+                    <a href="./04-router">Page 1</a>
+                </li>
+                <li>
+                    <a href="./04-router/p2">Page 2</a>
+                </li>
+                <li>
+                    <h4>Exercice :</h4>
+                    <ul>
+                        <li>
+                            <a href="./04-router/exercice">Page 1</a>
+                        </li>
+                        <li>
+                            <a href="./04-router/exercice/p2">page 2</a>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </li>
+        <li>
+            <h3>05 - MVC :</h3>
+            <ol>
+                <li>
+                    <a href="./05-mvc/">Liste Utilisateur</a>
+                </li>
+                <li>
+                    <a href="./05-mvc/inscription">Inscription</a>
+                </li>
+                <li>
+                    <h4>Exercice :</h4>
+                    <ul>
+                        <li>
+                        <a href="./05-mvc/connexion">Connexion</a>
+                    </li>
+                    <li>
+                        <a href="./05-mvc/deconnexion">Déconnexion</a>
+                    </li>
+                    </ul>
+                </li>
+            </ol>
+        </li>
+        <li>
+            <h3>06 - POO :</h3>
+            <ol>
+                <li>
+                    <a href="./06-poo/">Liste Utilisateur</a>
+                </li>
+                <li>
+                    <a href="./06-poo/inscription">Inscription</a>
+                </li>
+                <li>
+                    <h4>Exercice :</h4>
+                    <ul>
+                        <li>
+                            <a href="./06-poo/connexion">Connexion</a>
+                        </li>
+                        <li>
+                            <a href="./06-poo/deconnexion">Déconnexion</a>
                         </li>
                     </ul>
                 </li>

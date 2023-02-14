@@ -53,6 +53,14 @@ main
 {
     background-color:tomato;
 }
+.sommaire > :nth-child(5)
+{
+    background-color:darksalmon;
+}
+.sommaire > :nth-child(6)
+{
+    background-color:goldenrod;
+}
 /* Fin Sommaire */
 /* main.includeNav */
 /* ne fonctionne pas encore sous firefox */
