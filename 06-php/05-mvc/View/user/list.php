@@ -23,7 +23,7 @@ if(isset($flash)):
                     <td><?php echo $row["idUser"] ?></td>
                     <td><?php echo $row["username"] ?></td>
                     <td>
-                        <a href="/05-mvc/messages?id=<?php echo $row["idUser"] ?>">Voir</a>
+                        <a href="/05-mvc/message/list?id=<?php echo $row["idUser"] ?>">Voir</a>
                         <!-- On affiche les boutons éditer et supprimer, uniquement si ils correspondent à l'utilisateur connecté -->
                         <?php if(isset($_SESSION["idUser"]) && $_SESSION["idUser"] == $row["idUser"]): ?>
                             &nbsp;|&nbsp;
