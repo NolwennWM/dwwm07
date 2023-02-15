@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello VilleController!{% endblock %}
+{% block header %}Liste des villes{% endblock %}
+
+{% block body %}
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>nom</th>
+            <th>departement</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for v in villes %}
+        <tr>
+            <td>{{v.id}}</td>
+            <td>{{v.nom}}</td>
+            <td>{{v.departement.nom}}</td>
+            <td>
+                <a href="{{ path("detailVille", {id: v.id})}}">Voir</a>
+                <a href="{{ path("deleteVille", {id: v.id})}}">supprimer</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

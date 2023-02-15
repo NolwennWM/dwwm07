@@ -8,23 +8,29 @@ require __DIR__."/../../ressources/service/_csrf.php";
 
 class UserController extends AbstractController implements CrudInterface
 {
-    use \Classes\Trait\Debug;
-    private UserModel $db;
+    use Classes\Trait\Debug;
+    
+    // private UserModel $db;
     private string $regexPass = "/^(?=.*[!?@#$%^&*+-])(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z]).{6,}$/";
 
-    function __construct()
+    function __construct(private UserModel $db)
     {
-        $this->db = new UserModel();
+        // $this->db = new UserModel();
     }
-
+    /**
+     * Gère la page d'inscription.
+     *
+     * @return void
+     */
     function create():void
     {
         // Je change la redirection
         shouldBeLogged(false, "/06-poo");
+
         $username = $email = $password = "";
         $error = [];
         // Je retire regexPass et change le nom du formulaire attendu
-        if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['userForm']))
+        if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["userForm"]))
         {
             // Traitement username :
             if(empty($_POST["username"]))
@@ -46,7 +52,7 @@ class UserController extends AbstractController implements CrudInterface
                 // Je change ma fonction en méthode :
                 $resultat = $this->db->getOneUserByEmail($email);
                 if($resultat)
-                    $error["email"] = "Cet email est déjà enregistré";
+                    $error["email"] = "Cet email est déjà enregistré.";
             }
             // Traitement password :
             if(empty($_POST["password"]))
@@ -87,19 +93,31 @@ class UserController extends AbstractController implements CrudInterface
             "required"=>"required"
         ]);
     }
+    /**
+     * Gère la liste des utilisateurs
+     *
+     * @return void
+     */
     function read():void
     {
+        // Je change la fonction en méthode
         $users = $this->db->getAllUsers();
         // $this->dump($users);
+        // J'inclu ma vue.
         $this->render("user/list.php", [
             "users"=>$users,
             "title"=>"POO - Liste Utilisateur"
         ]);
     }
+    /**
+     * Gère la page de mise à jour de l'utilisateur.
+     *
+     * @return void
+     */
     function update():void
     {
         // Je change la redirection
-        shouldBeLogged(true, "/06-poo");
+        shouldBeLogged(true, "/06-poo/connexion");
     
         if(empty($_GET["id"]) || $_SESSION["idUser"] != $_GET["id"])
         {
@@ -114,7 +132,7 @@ class UserController extends AbstractController implements CrudInterface
         $username = $password = $email = "";
         $error = [];
         // Je retire $regexPass et modifie le nom du formulaire
-        if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['userForm']))
+        if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["userForm"]))
         {
             if(empty($_POST["username"]))
                 $username = $user["username"];
@@ -131,6 +149,14 @@ class UserController extends AbstractController implements CrudInterface
                 $email = cleanData($_POST["email"]);
                 if(!filter_var($email, FILTER_VALIDATE_EMAIL))
                     $error["email"]= "Votre nom d'utilisateur ne peut contenir que des lettres";
+                    if($email != $user["email"])
+                    {
+                        $exist = $this->db->getOneUserByEmail($email);
+                        if($exist)
+                        {
+                            $error["email"] = "Cet email existe déjà";
+                        }
+                    }
             }
             if(empty($_POST["password"]))
                 $password = $user["password"];
@@ -141,7 +167,7 @@ class UserController extends AbstractController implements CrudInterface
                 {
                     $error["passwordBis"] = "Veuillez confirmer votre mot de passe";
                 }
-                else if($_POST["password"] != $_POST["passwordBis"])
+				elseif($_POST["password"] != $_POST["passwordBis"])
                 {
                     $error["passwordBis"] = "Veuillez saisir le même mot de passe";
                 }
@@ -165,12 +191,18 @@ class UserController extends AbstractController implements CrudInterface
                 exit;
             }
         }
+        // J'inclu ma vue.
         $this->render("user/update.php", [
             "error"=>$error,
             "user"=>$user,
             "title"=>"POO - Mise à jour du Profil"
         ]);
     }
+    /**
+     * Gère la page de suppression de l'utilisateur.
+     *
+     * @return void
+     */
     function delete():void
     {
         // Je change la redirection
@@ -191,6 +223,7 @@ class UserController extends AbstractController implements CrudInterface
         // Je change la redirection
         header("refresh: 5;url = /06-poo");
     
+        // J'inclu ma vue
         $this->render("user/delete.php", [
             "title"=>"POO - Suppression de compte"
         ]);

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello VilleController!{% endblock %}
+{% block header %}Détail des Villes{% endblock %}
+
+{% block body %}
+<h1>{{ville.nom | upper}}</h1>
+
+<p>
+    {{ville.nom}} a une population de {{ ville.population }} habitants.
+    <br>
+    Cette fiche a été créé le {{ville.createdAt | date}}.
+    {% if ville.editedAt %}
+        <br> 
+        Cette fiche a été édité le {{ville.editedAt | date}}.
+    {% endif %}
+</p>
+{% endblock %}

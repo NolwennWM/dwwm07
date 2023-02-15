@@ -1,6 +1,10 @@
 <form action="" method="post">
     <!-- username -->
     <label for="username">Nom d'Utilisateur :</label>
+    <!-- 
+        J'ajoute la possibilité de mettre les inputs en require 
+        Ainsi que la possibilité de préremplir les inputs
+    -->
     <input 
         type="text" 
         name="username" 
@@ -31,5 +35,6 @@
     <input type="password" name="passwordBis" id="passwordBis" <?php echo $required??""?>>
     <span class="error"><?php echo $error["passwordBis"]??"" ?></span>
     <br>
+    <!-- Je change le nom et la value de l'input -->
     <input type="submit" value="Enregistrer" name="userForm">
 </form>

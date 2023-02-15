@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Bonjour {{ prenom }}{% endblock %}
+{% block header %}{{ prenom ~" "~ nom}}{% endblock %}
+{% block body %}
+{# partie flash message : #}
+<div>
+{# Je récupère uniquement les messages de la catégorie "bonjour" #}
+{% for message in app.flashes('bonjour') %}
+    <div>
+        {{ message }}
+    </div>
+{% endfor %}
+{# Je récupère la catégorie et les messages venant des catégories "hello" et "redirect" #}
+{% for categorie, messages in app.flashes(['Hello', "redirect"]) %}
+{# Pour chaque catégorie j'affiche les messages qu'elle contient. #}
+    {% for message in messages %}
+        <div>
+            <strong>{{ categorie }} :</strong>
+            <br>
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
+{# Je récupère les catégories et leur messages de toute les catégories #}
+{% for categorie, messages in app.flashes %}
+        {% for message in messages %}
+            <div>
+                <strong>{{ categorie }} :</strong>
+                <br>
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+</div>
+{# fin flash message #}
+<p>
+    Bonjour à toi !
+</p>
+{# Une fois arrivé aux problèmes de routing #}
+<hr>
+<a href="{{ path("bonjour", {nom: "Jean", prenom: "Fontaine"}) }}">Jean Fontaine</a>
+{# Gestion de la session : #}
+<hr>
+<h2>Déjà {{ app.session.get("nbVisite") }} visite(s) !</h2>
+{% endblock %}

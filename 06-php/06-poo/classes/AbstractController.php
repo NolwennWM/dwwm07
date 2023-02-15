@@ -27,7 +27,10 @@ abstract class AbstractController
         $_SESSION["flash"] = $flash;
     }
     /**
-     * Affiche une vue.
+     * Affiche la vue demandée. 
+     * 
+     * En option le title et le h1 du header peuvent être paramètré. 
+     * Ainsi que le transfère de toute donnée à la vue.
      *
      * @param string $view
      * @param array $options

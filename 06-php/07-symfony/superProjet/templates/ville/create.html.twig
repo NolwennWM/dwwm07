@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}Créer une Ville{% endblock %}
+
+{% block body %}
+{{form_start(villeForm)}}
+<div class="row">
+    <div class="col">{{form_row(villeForm.nom)}}</div>
+    <div class="col">{{form_row(villeForm.population)}}</div>
+</div>
+{% if is_granted("ROLE_ADMIN") %}
+    {{form_row(villeForm.photoFile)}}
+{% endif %}
+{{form_row(villeForm.departement)}}
+{{form_row(villeForm.Envoyer)}}
+{% endblock %}

@@ -1,5 +1,6 @@
 <?php 
 namespace Model;
+
 use Classes\AbstractModel;
 
 class UserModel extends AbstractModel

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Accueil{% endblock %}
+
+{% block body %}
+{{ controller_name | upper }}
+<br>
+{{ pays.france }}
+<br>
+{{ pays.angleterre | reverse }}
+<hr>
+<strong>
+{% if chiffre > 5 %}
+    {{ chiffre }} est plus grand que 5
+{% elseif chiffre < 5 %}
+    {{ chiffre }} est plus petit que 5
+{% else %}  
+    Votre chiffre vaut 5.
+{% endif %}
+</strong>
+<hr>
+<ul >
+    {% for f in fruits | reverse %}
+        <li>{{ f }}</li>
+    {% endfor %}
+</ul>
+<hr>
+{% for v in vide %}
+    Le tableau étant vide, cela ne s'affichera pas.
+{% else %}
+    Votre tableau est vide.
+{% endfor %}
+<hr>
+{{"44343453243" | price }}
+<br>
+{{"44343453243" | price("$", false, ".", ",") }}
+
+{% endblock %}
