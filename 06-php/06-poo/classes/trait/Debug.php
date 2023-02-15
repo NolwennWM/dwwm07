@@ -10,11 +10,11 @@ trait Debug
         ini_set("highlight.default", "#000000");
         ini_set("highlight.html", "#808080");
         ini_set("highlight.keyword", "#0000BB; font-weight: bold");
-        ini_set("highlight.string", "#DD0000");
+        ini_set("highlight.string", "#FFFFFF");
         
         $style = /* CSS */
-        "background-color: gray;
-        color: white;
+        "background-color: black;
+        color: #7FFF00;
         width: fit-content;
         padding: 1rem;
         border: 2px solid green;

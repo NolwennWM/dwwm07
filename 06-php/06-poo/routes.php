@@ -1,19 +1,19 @@
 <?php 
 const ROUTES = [
     "06-poo"=>[
-        "controller"=>"UserController.php",
+        "controller"=>"UserController",
         "fonction"=>"read"
     ],
     "06-poo/inscription"=>[
-        "controller"=>"UserController.php",
+        "controller"=>"UserController",
         "fonction"=>"create"
     ],
     "06-poo/user/update"=>[
-        "controller"=>"UserController.php",
+        "controller"=>"UserController",
         "fonction"=>"update"
     ],
     "06-poo/user/delete"=>[
-        "controller"=>"UserController.php",
+        "controller"=>"UserController",
         "fonction"=>"delete"
     ],
     // Exercices :

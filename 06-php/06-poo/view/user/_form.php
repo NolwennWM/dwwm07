@@ -31,5 +31,5 @@
     <input type="password" name="passwordBis" id="passwordBis" <?php echo $required??""?>>
     <span class="error"><?php echo $error["passwordBis"]??"" ?></span>
     <br>
-    <input type="submit" value="Inscription" name="userForm">
+    <input type="submit" value="Enregistrer" name="userForm">
 </form>
