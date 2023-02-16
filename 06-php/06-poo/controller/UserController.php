@@ -10,12 +10,12 @@ class UserController extends AbstractController implements CrudInterface
 {
     use Classes\Trait\Debug;
     
-    // private UserModel $db;
+    private UserModel $db;
     private string $regexPass = "/^(?=.*[!?@#$%^&*+-])(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z]).{6,}$/";
 
-    function __construct(private UserModel $db)
+    function __construct()
     {
-        // $this->db = new UserModel();
+        $this->db = new UserModel();
     }
     /**
      * Gère la page d'inscription.
