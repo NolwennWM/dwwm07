@@ -59,4 +59,18 @@ async function login(e)
 /**
  * Déconnecte l'utilisateur.
  */
-async function logout(){}
+async function logout()
+{
+    const response = await fetch("http://api.localhost/auth", 
+    {
+        method: "GET",
+        credentials: "include"
+    });
+    if(!response.ok)return;
+    sessionStorage.clear();
+    const main = document.querySelector("main");
+    main.textContent = "Utilisateur déconnecté";
+    const h2 = document.querySelector('header h2');
+    h2.textContent = "Non connecté";
+    getLinks();
+}
