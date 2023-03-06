@@ -1,0 +1,12 @@
+/* 
+    Theme Name: DwwmTheme
+    Theme URI: https://github.com/NolwennWM/dwwm07
+    Author: Nolwenn WEBER-MARQUISET
+    Author URI: http://www.marquiset.fr
+    Description: Apprenons à faire un thème
+    Requires at least: WordPress 6.0
+    Version: 0.1
+*/
+h1{
+    color: chartreuse;
+}
