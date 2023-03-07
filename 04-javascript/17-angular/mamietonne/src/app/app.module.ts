@@ -9,7 +9,11 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RecetteModule } from './recette/recette.module';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { MemoryDataService } from './memory-data.service';
-
+import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider
+} from '@abacritt/angularx-social-login';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,9 +25,32 @@ import { MemoryDataService } from './memory-data.service';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(MemoryDataService, {dataEncapsulation:false}),
     RecetteModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SocialLoginModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              'clientId'
+            )
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('clientId')
+          }
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
