@@ -1,0 +1,17 @@
+{
+    "name": "Super PWA",
+    "icons": [
+        {
+            "src":"./icons/pizza512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        },
+        {
+            "src":"./icons/pizza32.png",
+            "type": "image/png",
+            "sizes": "32x32"
+        }
+    ],
+    "start_url": "./?source=pwa",
+    "display": "standalone"
+}
